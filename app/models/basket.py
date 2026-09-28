@@ -31,8 +31,10 @@ class Basket(BaseEntity, db.Model):
 
     def remove_item(self, item: Item):
         basket_item = self.find_item(item)
-
+        if(basket_item is None):
+            return False
         self.items.remove(basket_item)
+        return True
 
     def find_item(self, item: Item):
         basket_item: BasketItem
