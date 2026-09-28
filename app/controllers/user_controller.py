@@ -13,7 +13,7 @@ from app.forms.user.user_login_form import UserLoginForm
 from app.forms.user.user_update_form import UserUpdateForm
 
 
-@app.route('/api/users')
+@app.route('/api/users', methods=["GET"])
 @auth_required()
 @inject
 def getUserList(user_service: UserService):
